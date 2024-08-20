@@ -1,0 +1,129 @@
+<!-- <kendo-chart>
+  <kendo-chart-category-axis>
+    <kendo-chart-category-axis-item [categories]="categories" [axisCrossingValue]="axisCrossingValues">
+    </kendo-chart-category-axis-item>
+  </kendo-chart-category-axis>
+  
+  <kendo-chart-value-axis>
+<kendo-chart-value-axis-item *ngFor="let axis of valueAxes" [name]="axis.name" [visible]="axis.visible">
+      <kendo-chart-value-axis-item-title [text]="axis.title"></kendo-chart-value-axis-item-title>
+    </kendo-chart-value-axis-item>
+  </kendo-chart-value-axis>
+  
+  <kendo-chart-series>
+    <kendo-chart-series-item type="column" [data]="primaryData" name="Primary Series" axis="primary">
+      <kendo-chart-series-item-tooltip format="{0}" [visible]="true">
+      </kendo-chart-series-item-tooltip>
+    </kendo-chart-series-item>
+    <kendo-chart-series-item type="area" [data]="secondaryData" name="Secondary Series" axis="secondary">
+      <kendo-chart-series-item-tooltip format="{0}" >
+      </kendo-chart-series-item-tooltip>
+    </kendo-chart-series-item>
+  </kendo-chart-series>
+  </kendo-chart>
+
+<button (click)="toggleSecondaryAxis()" style="margin-left: 10%;">
+  Toggle Secondary Axis
+</button>
+<div style="margin-left: 80%;">
+  <select [(ngModel)]="selectedAxisPosition" (change)="onChangeAxisPosition($event)">
+    <option [value]="0">Choose Position of Y-Axs</option>
+    <option [value]="">[P - Left , S - Right]</option>
+    <option [value]="1">[Both on Left]</option>
+    <option [value]="2">[S - Left , P - Right]</option>
+    <option [value]="3">[Both on Right]</option>
+  </select>
+</div>
+  -->
+
+
+<!-- 
+  <kendo-chart>
+    <kendo-chart-category-axis>
+      <kendo-chart-category-axis-item [categories]="categories" [axisCrossingValue]="axisCrossingValues">
+      </kendo-chart-category-axis-item>
+    </kendo-chart-category-axis>
+  
+    <kendo-chart-value-axis>
+      <kendo-chart-value-axis-item *ngFor="let axis of valueAxes" [name]="axis.name" [visible]="axis.visible">
+        <kendo-chart-value-axis-item-title [text]="axis.title"></kendo-chart-value-axis-item-title>
+      </kendo-chart-value-axis-item>
+    </kendo-chart-value-axis>
+  
+    <kendo-chart-series>
+      <kendo-chart-series-item type="column" [data]="primaryData" name="Primary Series" axis="primary" color="green">
+        <kendo-chart-series-item-tooltip format="{0}" [visible]="true">
+        </kendo-chart-series-item-tooltip>
+      </kendo-chart-series-item> -->
+      <!-- <kendo-chart-series-item type="area" [data]="secondaryDataInHours" name="Secondary Series" axis="secondary"> -->
+      <!-- <kendo-chart-series-item type="area" [data]="secondaryData" name="Secondary Series" axis="secondary" color="purple">
+        <kendo-chart-series-item-tooltip>
+          <ng-template tooltipTemplate let-value="value">
+            {{ formatTime(value) }}
+          </ng-template>
+        </kendo-chart-series-item-tooltip>
+      </kendo-chart-series-item>
+    </kendo-chart-series>
+  
+    <kendo-chart-legend position="top" orientation="horizontal"></kendo-chart-legend>
+  </kendo-chart>
+  
+  <button (click)="toggleSecondaryAxis()" style="margin-left: 10%;">
+    Toggle Secondary Axis
+  </button>
+  <div style="margin-left: 80%;">
+    <select [(ngModel)]="selectedAxisPosition" (change)="onChangeAxisPosition($event)">
+      <option [value]="0">Choose Position of Y-Axis</option>
+      <option [value]="">[P - Left, S - Right]</option>
+      <option [value]="1">[Both on Left]</option>
+      <option [value]="2">[S - Left, P - Right]</option>
+      <option [value]="3">[Both on Right]</option>
+    </select>
+  </div> -->
+  
+  
+  <kendo-chart>
+    <kendo-chart-category-axis>
+      <kendo-chart-category-axis-item [categories]="categories" [axisCrossingValue]="axisCrossingValues">
+      </kendo-chart-category-axis-item>
+    </kendo-chart-category-axis>
+  
+    <kendo-chart-value-axis>
+      <kendo-chart-value-axis-item *ngFor="let axis of valueAxes" [name]="axis.name" [visible]="axis.visible">
+        <kendo-chart-value-axis-item-title [text]="axis.title"></kendo-chart-value-axis-item-title>
+        <kendo-chart-value-axis-item-labels *ngIf="axis.name === 'secondary'" [content]="formatAxisLabel">
+        </kendo-chart-value-axis-item-labels>
+      </kendo-chart-value-axis-item>
+    </kendo-chart-value-axis>
+  
+    <kendo-chart-series>
+      <kendo-chart-series-item type="column" [data]="primaryData" name="Primary Series" axis="primary" color="green">
+        <kendo-chart-series-item-tooltip format="{0}" [visible]="true">
+        </kendo-chart-series-item-tooltip>
+      </kendo-chart-series-item>
+      <kendo-chart-series-item type="area" [data]="secondaryData" name="Secondary Series" axis="secondary" color="purple">
+        <kendo-chart-series-item-tooltip>
+          <ng-template tooltipTemplate let-value="value">
+            {{ formatTime(value) }}
+          </ng-template>
+        </kendo-chart-series-item-tooltip>
+      </kendo-chart-series-item>
+    </kendo-chart-series>
+  
+    <kendo-chart-legend position="top" orientation="horizontal"></kendo-chart-legend>
+  </kendo-chart>
+  
+  <button (click)="toggleSecondaryAxis()" style="margin-left: 10%;">
+    Toggle Secondary Axis
+  </button>
+  <div style="margin-left: 80%;">
+    <select [(ngModel)]="selectedAxisPosition" (change)="onChangeAxisPosition($event)">
+      <option [value]="0">Choose Position of Y-Axis</option>
+      <option [value]="">[P - Left, S - Right]</option>
+      <option [value]="1">[Both on Left]</option>
+      <option [value]="2">[S - Left, P - Right]</option>
+      <option [value]="3">[Both on Right]</option>
+    </select>
+  </div>
+  
+  
